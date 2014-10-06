@@ -3,6 +3,7 @@ Words = require "./words"
 describe "Words", ->
   it "counts one word", ->
     words = new Words "word"
+    console.log(words.count)
     expect(words.count).toEqual
       word: 1
 

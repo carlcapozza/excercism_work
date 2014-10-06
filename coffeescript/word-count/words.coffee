@@ -1,7 +1,6 @@
 class Words
-  constructor: (phrase) ->
-    @phrase = phrase
-
+  constructor: (@phrase) ->
+    @list = @phrase.split " "
 
   numbers: (str,word) ->
     num = pos = 0
@@ -10,20 +9,15 @@ class Words
     return num
 
   count: ->
-    wordlist = @phrase.split " "
-    for word in wordlist
-      number_count = @numbers @phrase,word
-      if (@obj = "undefined")
-        @obj =
-          [
-            {
-              aword: word
-              numbers: number_count
-            }
-          ]
-      else @obj.push(aword: word, numbers: number_count)
-    console.log(obj.aword)
-    return @obj
-
+    for word in @list
+      numbercount = @numbers @phrase, word
+      if (@results)
+        @results.push(theword: word, thenumber: numbercount)
+      else
+        @results =[
+          theword: word
+          thenumber: numbercount
+        ]
+    @results
 
 module.exports = Words
