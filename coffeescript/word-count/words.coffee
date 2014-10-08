@@ -1,23 +1,21 @@
 class Words
   constructor: (@phrase) ->
     @list = @phrase.split " "
+    @getcount()
 
   numbers: (str,word) ->
     num = pos = 0
     return 1/0 unless str.length
     num++ while pos = 1 + str.indexOf str, pos
-    return num
+    num
 
-  count: ->
+  getcount: ->
+    results = {}
     for word in @list
-      numbercount = @numbers @phrase, word
-      if (@results)
-        @results.push(theword: word, thenumber: numbercount)
+      if (results[word])
+        results[word]++
       else
-        @results =[
-          theword: word
-          thenumber: numbercount
-        ]
-    @results
+        results[word] = @numbers @phrase, word
+    @count = results
 
 module.exports = Words
