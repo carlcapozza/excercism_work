@@ -1,14 +1,14 @@
 class Words
   constructor: (@phrase) ->
-    @list = @phrase.split /\s+/
+    @list = @phrase.split /[\s,:]+/
     @getcount()
 
   getcount: ->
     results = {}
     for word in @list
       process_word = (word) ->
-        #word = word.match("[A-Za-z0-9]\w+")
-        word = word.toLowerCase()
+        word = word.match(/\w+/)
+        word = word[0].toLowerCase()
       word = process_word word
       if (results[word])
         results[word]++
