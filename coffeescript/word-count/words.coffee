@@ -1,21 +1,19 @@
 class Words
   constructor: (@phrase) ->
-    @list = @phrase.split " "
+    @list = @phrase.split /\s+/
     @getcount()
-
-  numbers: (str,word) ->
-    num = pos = 0
-    return 1/0 unless str.length
-    num++ while pos = 1 + str.indexOf str, pos
-    num
 
   getcount: ->
     results = {}
     for word in @list
+      process_word = (word) ->
+        #word = word.match("[A-Za-z0-9]\w+")
+        word = word.toLowerCase()
+      word = process_word word
       if (results[word])
         results[word]++
       else
-        results[word] = @numbers @phrase, word
+        results[word] = 1
     @count = results
 
 module.exports = Words
