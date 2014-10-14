@@ -1,0 +1,8 @@
+class accumulate
+
+  
+
+
+
+
+module.export =
